@@ -23,6 +23,28 @@ Update:Created template
     [class.invalid]="!detailsForm.controls.listName.valid && (submitAttempt)" 
     placeholder="My Shopping List"></ion-input>
   </ion-item>
+  <ion-item>
+    <ion-label stacked>Enter New List Name</ion-label>
+    <ion-input  
+    formControlName="listName" 
+    [(ngModel)]="name" type="text" 
+    [class.invalid]="!detailsForm.controls.listName.valid && (submitAttempt)" 
+    placeholder="My Shopping List"></ion-input>
+  </ion-item>
+<!-- Labels-->
+  <ion-item>
+ <ion-grid>
+  <ion-row>
+    <ion-col width-50>
+
+    <ion-label stacked>Enter New List Item</ion-label>
+    </ion-col>
+    <ion-col width-50>
+    <ion-label stacked>Quantity</ion-label>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  </ion-item>
 <!-- Sliding List Items-->
   <ion-list>
     <!-- List of items -->
@@ -32,10 +54,10 @@ Update:Created template
   <ion-row>
     <ion-col width-50>
 
-          <h2>{{item.name}}</h2>
+          <h2>Test</h2>
     </ion-col>
     <ion-col width-50>
-          <h2>{{item.quantity}}</h2>
+          <h2>1</h2>
     </ion-col>
   </ion-row>
 </ion-grid>
@@ -55,15 +77,23 @@ Update:Created template
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
-
-
 <!---
   <ion-item>
     <ion-label stacked>Enter new list item</ion-label>
     <ion-textarea formControlName="todoNotes"[(ngModel)]="notes" type="text" [class.invalid]="!detailsForm.controls.todoNotes.valid && (submitAttempt)" placeholder="Steps to complete task"></ion-textarea>
   </ion-item> -->
+  
+          <ion-grid>
+  <ion-row>
+    <ion-col width-50>
 <!-- Save Button -->
   <button ion-button class="add-btn" type="submit"> Save </button>
+    </ion-col>
+    <ion-col width-50>
+      <!-- Cancel Button -->
   <button ion-button class="cancel-btn" type="" click()="goBack()"> Cancel </button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </form>
  </ion-content>
