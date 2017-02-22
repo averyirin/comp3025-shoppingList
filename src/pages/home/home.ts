@@ -1,10 +1,10 @@
 /*
-Program: ToDoApp
-Author: Irin Avery 200260949
+Program: ShoppingListApp
+Author: Irin Avery
+StudentID: 200260949
 Date Last Modified: 2/16/2017
 File: Home.ts
 Description: Prompts CRUD functionality, and navigates to add and edit page.
-Update: Added navigation to edit page with passed values.
 */
 // import components
 import { Component } from '@angular/core';
