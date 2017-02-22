@@ -23,54 +23,38 @@ Update:Created template
     [class.invalid]="!detailsForm.controls.listName.valid && (submitAttempt)" 
     placeholder="My Shopping List"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label stacked>Enter New List Name</ion-label>
-    <ion-input  
-    formControlName="listName" 
-    [(ngModel)]="name" type="text" 
-    [class.invalid]="!detailsForm.controls.listName.valid && (submitAttempt)" 
-    placeholder="My Shopping List"></ion-input>
-  </ion-item>
+    
 <!-- Labels-->
   <ion-item>
- <ion-grid>
-  <ion-row>
-    <ion-col width-50>
-
     <ion-label stacked>Enter New List Item</ion-label>
-    </ion-col>
-    <ion-col width-50>
     <ion-label stacked>Quantity</ion-label>
-    </ion-col>
-  </ion-row>
-</ion-grid>
   </ion-item>
 <!-- Sliding List Items-->
   <ion-list>
     <!-- List of items -->
-      <ion-item-sliding id="list" text-wrap *ngFor="let item of itemList | async">
+      <ion-item-sliding id="list" text-wrap >
         <ion-item>
-          <ion-grid>
-  <ion-row>
-    <ion-col width-50>
-
-          <h2>Test</h2>
-    </ion-col>
-    <ion-col width-50>
-          <h2>1</h2>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
+          <ion-input type="text" name="item1name"></ion-input>
+          <button ion-button color="dark" (click)="decreaseQuantity(item.quantity)">
+          <ion-icon name="arrow-back"></ion-icon>
+          </button>
+        <ion-input type="number" name="item1quantity" ></ion-input>
+          <button ion-button color="dark" (click)="increaseQuantity(item.quantity)">
+          <ion-icon name="arrow-forward"></ion-icon>
+          </button>
         </ion-item>
-        <!-- Slide to right for edit -->
-        <ion-item-options side="right">
-          <button ion-button (click)="editList(list.$key, list.name, list.items)">
-          <ion-icon name="build"></ion-icon>
+
+
+        <!-- Slide to left for favourite -->
+        <ion-item-options side="left">
+          <button ion-button color="secondary" (click)="favouriteItem(item.$key)">
+          <ion-icon name="star-outline"></ion-icon>
           Edit
           </button>
+        </ion-item-options>
         <!-- Slide to right for delete -->
-          <button ion-button color="danger" (click)="promptDelete(list.$key)">
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="promptDelete(item.$key)">
           <ion-icon name="trash"></ion-icon>
           Delete
           </button>
@@ -91,7 +75,7 @@ Update:Created template
     </ion-col>
     <ion-col width-50>
       <!-- Cancel Button -->
-  <button ion-button class="cancel-btn" type="" click()="goBack()"> Cancel </button>
+  <button ion-button class="cancel-btn" type="" color="dark" (click)="goBack()"> Cancel </button>
     </ion-col>
   </ion-row>
 </ion-grid>
