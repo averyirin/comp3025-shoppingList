@@ -1,9 +1,9 @@
 /*
-Program: ToDoApp
+Program: ShoppingListApp
 Author: Irin Avery 200260949
 Date Last Modified: 2/16/2017
-File: todo-details.ts
-Description: A form that edits or creates new tasks
+File: shopping-details.ts
+Description: A form that edits or creates new lists
 Update: Added input validation
 */
 //import components
