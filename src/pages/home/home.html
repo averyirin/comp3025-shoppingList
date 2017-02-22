@@ -1,14 +1,45 @@
-<ion-header>
+<!--
+Program: ShoppingListApp
+Author: Irin Avery
+Student ID: 200260949
+Date Last Modified: 2/22/2017
+File: Home.html
+Description: Showcases a list of shopping lists
+-->
+  <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title> My Shopping List </ion-title>
+    <!-- Add Button -->
+    <ion-buttons end>
+      <button class="add-btn" ion-button color="secondary" (click)="newShoppingList()">
+    <ion-icon name="add"></ion-icon>&nbsp;Add
+  </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="home">
+  <ion-card>
+    <ion-card-header class=""> Your Shopping Lists </ion-card-header>
+    <ion-list>
+    <!-- List of pending tasks -->
+      <ion-item-sliding id="list" text-wrap *ngFor="let list of shoppingList | async">
+        <ion-item>
+          <ion-icon name="cart" danger item-left></ion-icon>
+          <h2>{{list.name}}</h2>
+        </ion-item>
+        <!-- Slide to right for edit -->
+        <ion-item-options side="right">
+          <button ion-button (click)="editList(list.$key, list.name, list.items)">
+          <ion-icon name="build"></ion-icon>
+          Edit
+          </button>
+        <!-- Slide to right for delete -->
+          <button ion-button color="danger" (click)="promptDelete(list.$key)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
 </ion-content>
